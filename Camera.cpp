@@ -55,9 +55,9 @@ int Camera::EnumDevices(PENUMDEVICE pCallback, void* pItem)
 				pPropertyBag->Read(L"FriendlyName", &var, 0);
 			}
 			WideCharToMultiByte(CP_ACP, 0, var.bstrVal, -1,szCameraName, sizeof(szCameraName), 0, 0);
-			
-			(*pCallback)(pItem, szCameraName);
-
+			if (pCallback != NULL) {
+				(*pCallback)(pItem, szCameraName);
+			}
 			VariantClear(&var);
 
 			// Release resource
