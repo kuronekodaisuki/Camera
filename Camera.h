@@ -13,7 +13,7 @@ using namespace cv;
 
 typedef bool (*PENUMDEVICE)(void *pItem, char *pDeviceName);
 
-class Camera: VideoCapture
+class Camera: public VideoCapture
 {
 public:
 	static int EnumDevices(PENUMDEVICE pCallback, void *pItem);
